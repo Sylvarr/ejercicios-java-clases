@@ -34,6 +34,12 @@ public class TestAcademia {
     // Calculamos la media de todas las notas, incluidas las corregidas
     System.out.println(cursoJava.calcularMedia());
 
+    Estudiante pencho = new Estudiante("Pencho", 10);
+    Estudiante nathaly = new Estudiante("Nathaly", 10);
+
+    System.out.println("Info Pencho: " + pencho);
+    System.out.println("Info Nathaly: " + nathaly);
+
   }
-  
+
 }
