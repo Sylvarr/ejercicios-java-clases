@@ -6,13 +6,16 @@ public class Estudiante {
   private String nombre;
   private double nota;
   private int id;
+  // Con static inicializamos una variable que pertenece a la clase misma
   private static int contador = 1;
 
   // Constructor
   public Estudiante(String nombre, double nota) {
     this.nombre = nombre;
     this.nota = nota;
+    // Asignamos el valor actual del contador como id de cada estudiante
     this.id = contador;
+    // Aumentamos el contador en 1
     contador++;
   }
 
