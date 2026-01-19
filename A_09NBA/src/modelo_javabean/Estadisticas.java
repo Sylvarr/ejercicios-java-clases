@@ -29,8 +29,13 @@ public class Estadisticas {
    * @param taponesPorPartido     Media de tapones
    * @param rebotesPorPartido     Media de rebotes
    */
-  public Estadisticas(Jugador jugador, String temporada, int puntosPorPartido, int asistenciasPorPartido,
-      int taponesPorPartido, int rebotesPorPartido) {
+  public Estadisticas(
+      Jugador jugador,
+      String temporada,
+      int puntosPorPartido,
+      int asistenciasPorPartido,
+      int taponesPorPartido,
+      int rebotesPorPartido) {
     this.jugador = jugador;
     this.temporada = temporada;
     this.puntosPorPartido = puntosPorPartido;

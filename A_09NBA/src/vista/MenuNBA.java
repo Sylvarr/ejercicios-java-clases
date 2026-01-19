@@ -105,15 +105,21 @@ public class MenuNBA {
   private static void addJugador() {
     System.out.println("\n --- ALTA DE JUGADOR ---");
 
+    if (!gestion.hayEquipos()) {
+      System.out.println("Error: No hay equipos registrados para fichar jugadores.");
+      System.out.println("   -> Registra un equipo primero (Opción 1).");
+      return;
+    }
+
     System.out.print("Codigo: ");
     int codigo = sc.nextInt();
     sc.nextLine();
 
     System.out.print("Nombre: ");
-    String nombre = sc.nextLine().trim();
+    String nombre = sc.nextLine();
 
     System.out.print("Procedencia: ");
-    String procedencia = sc.nextLine().trim();
+    String procedencia = sc.nextLine();
 
     System.out.print("Altura (con comas, ej: 2,05): ");
     double altura = sc.nextDouble();
@@ -123,16 +129,24 @@ public class MenuNBA {
     sc.nextLine();
 
     System.out.print("Posicion: ");
-    String posicion = sc.nextLine().trim();
+    String posicion = sc.nextLine();
 
     System.out.println("A qué equipo pertenece el jugador? Elige uno de la lista:");
 
     gestion.mostrarNombresEquipos();
 
     System.out.print("Escribe el nombre exacto del equipo: ");
-    String nombreEquipo = sc.nextLine().trim();
+    String nombreEquipo = sc.nextLine();
 
-    boolean exito = gestion.altaJugador(codigo, nombre, procedencia, altura, peso, posicion, nombreEquipo);
+    // --- EL MOMENTO DE LA VERDAD ---
+    boolean exito = gestion.altaJugador(
+        codigo,
+        nombre,
+        procedencia,
+        altura,
+        peso,
+        posicion,
+        nombreEquipo);
 
     if (exito) {
       System.out.println("Jugador fichado correctamente.");

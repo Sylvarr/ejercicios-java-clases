@@ -88,12 +88,20 @@ public class GestionNBA {
    * @return true si se crea correctamente, false si ya existe un equipo con ese
    *         nombre
    */
-  public boolean altaEquipo(String nombre, String ciudad, String conferencia, String Division) {
+  public boolean altaEquipo(
+      String nombre,
+      String ciudad,
+      String conferencia,
+      String Division) {
     if (buscarEquipo(nombre) != null) {
       return false;
     }
 
-    Equipo nuevo = new Equipo(nombre, ciudad, conferencia, Division);
+    Equipo nuevo = new Equipo(
+        nombre,
+        ciudad,
+        conferencia,
+        Division);
 
     equipos.add(nuevo);
     return true;
@@ -134,7 +142,13 @@ public class GestionNBA {
    * @return true si se crea correctamente, false si el código ya existe o el
    *         equipo no se encuentra
    */
-  public boolean altaJugador(int codigo, String nombre, String procedencia, double altura, int peso, String posicion,
+  public boolean altaJugador(
+      int codigo,
+      String nombre,
+      String procedencia,
+      double altura,
+      int peso,
+      String posicion,
       String nombreEquipo) {
     Equipo equipoEncontrado = buscarEquipo(nombreEquipo);
 
@@ -146,7 +160,14 @@ public class GestionNBA {
       return false;
     }
 
-    Jugador nuevo = new Jugador(codigo, nombre, procedencia, altura, peso, posicion, equipoEncontrado);
+    Jugador nuevo = new Jugador(
+        codigo,
+        nombre,
+        procedencia,
+        altura,
+        peso,
+        posicion,
+        equipoEncontrado);
 
     jugadores.add(nuevo);
     equipoEncontrado.ficharJugador(nuevo);
@@ -188,8 +209,13 @@ public class GestionNBA {
    * @return true si se registra, false si algún equipo no existe, es el mismo
    *         equipo, o el código está repetido
    */
-  public boolean altaPartido(int codigo, String equipoLocal, String equipoVisitante, int puntosLocal,
-      int puntosVisitante, String temporada) {
+  public boolean altaPartido(
+      int codigo,
+      String equipoLocal,
+      String equipoVisitante,
+      int puntosLocal,
+      int puntosVisitante,
+      String temporada) {
 
     Equipo equipoLocalEncontrado = buscarEquipo(equipoLocal);
     Equipo equipoVisitanteEncontrado = buscarEquipo(equipoVisitante);
@@ -206,8 +232,13 @@ public class GestionNBA {
       return false;
     }
 
-    Partido nuevo = new Partido(codigo, equipoLocalEncontrado, equipoVisitanteEncontrado, puntosLocal,
-        puntosVisitante, temporada);
+    Partido nuevo = new Partido(
+        codigo,
+        equipoLocalEncontrado,
+        equipoVisitanteEncontrado,
+        puntosLocal,
+        puntosVisitante,
+        temporada);
     partidos.add(nuevo);
 
     return true;
@@ -238,16 +269,26 @@ public class GestionNBA {
    * @return true si se añade, false si el jugador no existe o la estadística ya
    *         existe
    */
-  public boolean altaEstadistica(int codigo, String temporada, int puntosPorPartido, int asistenciasPorPartido,
-      int taponesPorPartido, int rebotesPorPartido) {
+  public boolean altaEstadistica(
+      int codigo,
+      String temporada,
+      int puntosPorPartido,
+      int asistenciasPorPartido,
+      int taponesPorPartido,
+      int rebotesPorPartido) {
 
     Jugador jugador = buscarIdJugador(codigo);
     if (jugador == null) {
       return false;
     }
 
-    Estadisticas nueva = new Estadisticas(jugador, temporada, puntosPorPartido, asistenciasPorPartido,
-        taponesPorPartido, rebotesPorPartido);
+    Estadisticas nueva = new Estadisticas(
+        jugador,
+        temporada,
+        puntosPorPartido,
+        asistenciasPorPartido,
+        taponesPorPartido,
+        rebotesPorPartido);
 
     if (estadisticas.contains(nueva)) {
       return false;
@@ -260,9 +301,17 @@ public class GestionNBA {
 
   public void mostrarNombresEquipos() {
     System.out.println("--- Equipos Disponibles ---");
+    if (equipos.isEmpty()) {
+      System.out.println("(No hay equipos registrados)");
+      return;
+    }
     for (Equipo e : equipos) {
       System.out.println("- " + e.getNombre());
     }
+  }
+
+  public boolean hayEquipos() {
+    return !equipos.isEmpty();
   }
 
   public void mostrarNombresJugadores(String nombreEquipo) {

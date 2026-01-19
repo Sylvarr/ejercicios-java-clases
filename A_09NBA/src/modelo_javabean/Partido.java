@@ -28,7 +28,12 @@ public class Partido {
    * @param puntosVisitante Puntos del visitante
    * @param temporada       Temporada del partido
    */
-  public Partido(int codigo, Equipo equipoLocal, Equipo equipoVisitante, int puntosLocal, int puntosVisitante,
+  public Partido(
+      int codigo,
+      Equipo equipoLocal,
+      Equipo equipoVisitante,
+      int puntosLocal,
+      int puntosVisitante,
       String temporada) {
     this.codigo = codigo;
     this.equipoLocal = equipoLocal;

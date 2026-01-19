@@ -31,7 +31,13 @@ public class Jugador {
    * @param posicion    Posición de juego
    * @param equipo      Equipo al que pertenece
    */
-  public Jugador(int codigo, String nombre, String procedencia, double altura, int peso, String posicion,
+  public Jugador(
+      int codigo,
+      String nombre,
+      String procedencia,
+      double altura,
+      int peso,
+      String posicion,
       Equipo equipo) {
     this.codigo = codigo;
     this.nombre = nombre;
