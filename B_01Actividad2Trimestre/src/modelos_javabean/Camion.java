@@ -46,11 +46,6 @@ public class Camion extends Vehiculo {
    */
   @Override
   public double cargaDisponible() {
-
-    // Original code:
-    // if (cargaOcupadaKg == 0) {
-    // System.out.println("El camión esta libre de carga.");
-    // }
     return capacidadCargaKg - cargaOcupadaKg;
   }
 
@@ -72,16 +67,6 @@ public class Camion extends Vehiculo {
    */
   @Override
   public boolean isLleno() {
-
-    // Original code:
-    // if (cargaOcupadaKg > capacidadCargaKg) {
-    // System.out.println("No cabe tanta carga en este camión");
-    // return true;
-    // } else if (cargaOcupadaKg == capacidadCargaKg) {
-    // return true;
-    // }
-    // return false;
-
     if (capacidadCargaKg == cargaOcupadaKg) {
       return true;
     } else {
